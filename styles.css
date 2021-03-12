@@ -4,6 +4,7 @@ body {
 
 .container {
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
     align-content: center;
     justify-content: center;
