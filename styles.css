@@ -1,0 +1,10 @@
+body {
+    font-size: 30px;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    align-content: center;
+    justify-content: center;
+}
