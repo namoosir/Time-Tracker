@@ -16,7 +16,7 @@ let offset,clock,interval;
 function start(){
     if(!interval){
         offset = Date.now();
-        interval = setInterval(update,100);
+        interval = setInterval(update,1);
     }
     renderClock();
 }
@@ -58,15 +58,7 @@ function createNewType(){
 
 //renders the clock only
 function renderClock(){
-    let x = document.getElementById('demo').innerHTML = formatTime();
-}
-
-function formatTime(){
-    let seconds = (clock/1000) % 60;
-    let minutes = Math.floor((clock/1000) / 60) % 60;
-    let hours = Math.floor((clock/1000) / 3600);
-
-    return hours + " : " + minutes + " : " + seconds;
+    let x = document.getElementById('demo').innerHTML = new Date(clock).toISOString().substr(11, 8);
 }
 
 //renders the the whole page
