@@ -30,6 +30,7 @@ function stop(){
 function reset(){
     clock = 0;
     renderClock(0);
+    stop();
 }
 function update(){
     clock += delta();
@@ -58,7 +59,7 @@ function createNewType(){
 
 //renders the clock only
 function renderClock(){
-    let x = document.getElementById('demo').innerHTML = new Date(clock).toISOString().substr(11, 8);
+    let x = document.getElementById('demo').innerHTML = new Date(clock).toISOString().substr(11,11);
 }
 
 //renders the the whole page
@@ -104,6 +105,7 @@ function mark(){
     let inputType = document.getElementById("types").value;
     sessions.push(new session(clock,inputType));
     reset();
+    start();
     render();
 }
 
