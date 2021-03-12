@@ -28,7 +28,7 @@ function stop(){
     renderClock();
 }
 function reset(){
-    clock =0;
+    clock = 0;
     renderClock(0);
 }
 function update(){
@@ -58,7 +58,15 @@ function createNewType(){
 
 //renders the clock only
 function renderClock(){
-    let x = document.getElementById('demo').innerHTML = clock/1000;
+    let x = document.getElementById('demo').innerHTML = formatTime();
+}
+
+function formatTime(){
+    let seconds = (clock/1000) % 60;
+    let minutes = Math.floor((clock/1000) / 60) % 60;
+    let hours = Math.floor((clock/1000) / 3600);
+
+    return hours + " : " + minutes + " : " + seconds;
 }
 
 //renders the the whole page
@@ -118,4 +126,3 @@ document.getElementById('stop').addEventListener("click",stop);
 document.getElementById('reset').addEventListener("click",reset);
 document.getElementById('mark').addEventListener("click",mark);
 document.getElementById('types').addEventListener("click",createNewType);
-
