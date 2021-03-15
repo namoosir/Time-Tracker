@@ -1,5 +1,7 @@
 body {
-    font-size: 70px;
+    font-size: 90px;
+    background-color:rgb(41, 6, 29);
+    font-family: 'Nunito', sans-serif;
 }
 
 .container {
@@ -8,4 +10,19 @@ body {
     min-height: 95vh;
     align-items: center;
     justify-content: center;
+    color: rgb(231, 231, 207);
+}
+
+.timeview{
+    font-weight: 200;
+}
+
+button {
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    background-color: rgb(41, 6, 29);
+    border: rgb(231, 231, 207);
+    border-style: solid;
+    border-width: 1px;
+    color: rgb(231, 231, 207);
 }
