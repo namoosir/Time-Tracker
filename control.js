@@ -66,7 +66,7 @@ function renderClock(){
 function render(){
     renderClock();
     console.log(sessions);
-    
+
     //updates select options
     document.getElementById('types').innerHTML = "";
     console.log(type);
@@ -85,6 +85,7 @@ function render(){
         console.log(elem);
         let li = document.createElement('li');
         li.innerHTML = elem.toString();
+
         document.getElementById('list').append(li);
     })
 }
@@ -94,13 +95,13 @@ let session = function(inputTime,inputType){
     let objTime = inputTime;
     let objType = inputType;
     function toString(){
-        return objTime/1000 + "s, " + objType; 
+        return new Date(inputTime).getSeconds(); 
     }
 
     this.toString = toString;
 }
 
-//adds a session to session array 
+//adds a session to session array
 function mark(){
     let inputType = document.getElementById("types").value;
     sessions.push(new session(clock,inputType));
