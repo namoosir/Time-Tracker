@@ -14,6 +14,6 @@
 
 - [ ] add REACT JS interface
 
-Notes:
+## Notes:
 - [Figma Link](https://www.figma.com/file/RQBupNupzLTfbeLOujD6nq/Untitled?node-id=0%3A1)
 
