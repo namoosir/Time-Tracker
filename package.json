@@ -1,0 +1,23 @@
+{
+  "name": "time-tracker",
+  "version": "1.0.0",
+  "description": "simple web app that allows u to keep track of your work schedule",
+  "main": "control.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namoosir/Time-Tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/namoosir/Time-Tracker/issues"
+  },
+  "homepage": "https://github.com/namoosir/Time-Tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
