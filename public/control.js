@@ -5,6 +5,7 @@ let type = new Array(); //stores data about all possiable session type
 //adds default types
 type.push("");
 type.push("options");
+let startDate;
 
 
 let list = document.getElementById('list'); //maybe useless idk
@@ -14,6 +15,7 @@ let offset,clock,interval;
 
 //clock functions
 function start(){
+    startDate = new Date();
     if(!interval){
         offset = Date.now();
         interval = setInterval(update,1);
@@ -95,7 +97,24 @@ let session = function(inputTime,inputType){
     let objTime = inputTime;
     let objType = inputType;
     function toString(){
-        return new Date(inputTime).getSeconds(); 
+        let minutes = inputTime/60000;
+        minutes = Math.floor(minutes);
+        let seconds = new Date(inputTime).getSeconds();
+        seconds = Math.floor(seconds);
+        let hours = minutes/60;
+        hours = Math.floor(hours);
+        let output = "";
+        if(hours > 0){
+            output += hours.toString() + "hrs, ";
+        }
+        if(minutes > 0){
+            output += minutes.toString() + "min, ";
+        }
+        if(seconds > 0){
+            output += seconds.toString() + "s, ";
+        }
+        output += inputType;
+        return output;
     }
 
     this.toString = toString;

@@ -26,3 +26,13 @@ button {
     border-width: 1px;
     color: rgb(231, 231, 207);
 }
+
+#types{
+	color: rgb(0,0,0);
+	font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+}
+
+#list{
+    font-size: 20px;
+}
