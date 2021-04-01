@@ -1,6 +1,6 @@
 //arrays used
 let sessions = new Array(); //stores data about each sessions
-let type = new Array(); //stores data about all possiable session type
+let type = new Array(); //stores data about all possible session type
 
 //adds default types
 type.push("");
@@ -86,17 +86,24 @@ function render(){
     sessions.forEach(function(elem){
         console.log(elem);
         let li = document.createElement('li');
-        li.innerHTML = elem.toString();
+        li.innerHTML = sessionToString(elem);
 
         document.getElementById('list').append(li);
     })
 }
 
-//session object
-let session = function(inputTime,inputType){
-    let objTime = inputTime;
-    let objType = inputType;
-    function toString(){
+//session object methods
+function addSessionsItem(inputTime,inputType){
+    let x = {
+        time: inputTime,
+        type: inputType 
+    }
+    sessions.push(x);
+}
+
+function sessionToString(item){
+        let inputTime = item.time;
+        let inputType = item.type;
         let minutes = inputTime/60000;
         minutes = Math.floor(minutes);
         let seconds = new Date(inputTime).getSeconds();
@@ -115,23 +122,44 @@ let session = function(inputTime,inputType){
         }
         output += inputType;
         return output;
-    }
-
-    this.toString = toString;
 }
+
 
 //adds a session to session array
 function mark(){
+    //sends post request to server
     let inputType = document.getElementById("types").value;
-    sessions.push(new session(clock,inputType));
-    reset();
-    start();
-    render();
+    addSessionsItem(clock,inputType);
+
+    let xhttp = new XMLHttpRequest();
+    let url = "/mark"
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            console.log("On client: "+ this.responseText);
+            reset();
+            start();
+            render();
+        }
+    }
+
+    xhttp.open("POST",url,true);
+    //xhttp.setRequestHeader("Accept","application/json");
+    xhttp.setRequestHeader("Content-Type", "text/html");
+    console.log("on client "+ JSON.stringify(sessions));
+    xhttp.send("Help me I am lost");
+    
 }
 
 //important to start the page, it sets up the stopwatch and it populates the page
-reset();
-render();
+
+
+window.onload = function(){
+  //send request to Server
+  //populate sessions array
+  reset();
+  render();
+}
+
 
 
 //binding events and functions to buttons
